@@ -1,0 +1,61 @@
+/* Reset and Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background: #6ca9d1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Container for the textarea */
+.editor-container {
+  flex: 1;
+  padding: 50px;
+  height: calc(100vh - 60px); /* Adjust for the status bar height */
+  display: flex;
+  justify-content: center; /* Center the textarea */
+  align-items: center; /* Center the textarea vertically */
+}
+
+/* Textarea styling */
+textarea.form-control {
+  width: 100%;
+  min-height: 100px; /* Give it a minimum height for visibility */
+  padding: 50px;
+  border: 5px solid #FF0000; /* Red border */
+  font-size: 18px;
+  background: #a3a598;
+  border-radius: 6px;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-sizing: border-box; /* Include padding and border in the total size */
+  resize: vertical; /* Allow vertical resizing of the textarea */
+}
+
+/* Placeholder styling */
+textarea.form-control::placeholder {
+  color: #aaa;
+}
+
+/* Status bar at the bottom */
+.status-bar {
+  background: #2d6aa0;
+  color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+/* Status bar individual item styling */
+.status-bar span {
+  font-weight: bold;
+  font-size: 18px;
+}
