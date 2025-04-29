@@ -1,5 +1,5 @@
 function countAll() {
-    const text = document.getElementById('textInput').innerText || '';
+    const text = document.getElementById('description').value || ''; // Get the value of the textarea
   
     // Characters
     const charCount = text.length;
@@ -19,16 +19,17 @@ function countAll() {
     // Spaces
     const spaceCount = (text.match(/ /g) || []).length;
   
+    // Update the UI with the counts
     document.getElementById('charCount').textContent = charCount;
     document.getElementById('wordCount').textContent = wordCount;
     document.getElementById('sentenceCount').textContent = sentenceCount;
     document.getElementById('paragraphCount').textContent = paragraphCount;
     document.getElementById('spaceCount').textContent = spaceCount;
-  }
+}
   
-  // Debounce input
-  let debounceTimer;
-  function debounceCountAll() {
+// Debounce input
+let debounceTimer;
+function debounceCountAll() {
     clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(countAll, 300);
-  }  
+    debounceTimer = setTimeout(countAll, 300); // Adjust the debounce time as needed
+}
