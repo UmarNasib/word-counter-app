@@ -1,0 +1,63 @@
+/* Reset and Global Styles */
+* {
+  margin: 0.5;
+  padding: 0.5;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: "Segoe UI", sans-serif;
+  background: #eaec56;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container that holds the textarea and grows to fill remaining space */
+.editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Textarea fills all available vertical space in container */
+textarea.form-control {
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  width: 100%;
+  padding: 20px;
+  font-size: 18px;
+  background: #ecece8;
+  border: 0.3in solid #12547a;
+  border-radius: 20px;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  box-sizing: border-box;
+  resize: none; /* prevent manual resize */
+}
+
+/* Status bar stays fixed at the bottom */
+.status-bar {
+  background: #ecece8;
+  color: #12547a;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+  border: 0.3in solid #12547a;
+  border-top: none; /* remove top border to merge with textarea */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  height: 60px;
+}
+
+.status-bar span {
+  font-weight: bold;
+  font-size: 18px;
+}
