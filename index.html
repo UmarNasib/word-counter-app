@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Word Counter & Generator</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .generator-container h2 {
+      text-align: center;
+      margin: 10px 0;  /* Optional: adds some space above and below the heading */
+    }
+  </style>
 </head>
 <body>
   <div id="copyMessage" class="copy-message"></div>
@@ -32,6 +38,7 @@
 
       <div class="column-actions separated">
         <button onclick="copyCounterText()" class="mini-button">Copy</button>
+        <button id="pasteButton" class="mini-button">Paste</button>
         <button onclick="clearCounterText()" class="mini-button red-button">Clear</button>
       </div>
     </div>
@@ -39,7 +46,8 @@
     <!-- Right column: Text Generator -->
     <div class="generator-container">
       <h2>Generate Text</h2>
-      <input type="number" id="charLimit" placeholder="Enter character count" />
+      <input type="number" id="charLimit" placeholder="Enter number of characters to generate text" min="0"/>
+      <div id="invalidMessage" class="invalid-message"></div>
       <button onclick="generateText()">Generate</button>
       <textarea id="generatedText" rows="27" readonly></textarea>
 
