@@ -4,60 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Word Counter & Generator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css" />
-  <style>
-    .generator-container h2 {
-      text-align: center;
-      margin: 10px 0;  /* Optional: adds some space above and below the heading */
-    }
-  </style>
 </head>
 <body>
-  <div id="copyMessage" class="copy-message"></div>
+<div id="copyMessage" class="copy-message"></div>
 
-  <div class="app-container">
-    <!-- Left column: Word Counter -->
-    <div class="editor-container">
-      <textarea 
-        id="description" 
-        name="description" 
-        class="form-control" 
-        rows="7" 
-        placeholder="Start typing or paste to begin..." 
-        autocomplete="off"
-        oninput="debounceCountAll()"
-      ></textarea>
+<div class="header-controls">
+  <h1>Word Counter App</h1>
+  <button id="themeToggle" class="mini-button theme-toggle">🌙 Dark Mode</button>
+</div>
 
-      <div class="status-bar">
-        <div>Characters: <span id="charCount">0</span></div>
-        <div>Words: <span id="wordCount">0</span></div>
-        <div>Sentences: <span id="sentenceCount">0</span></div>
-        <div>Paragraphs: <span id="paragraphCount">0</span></div>
-        <div>Spaces: <span id="spaceCount">0</span></div>
-      </div>
+<div class="app-container">
+  <div class="editor-container">
 
-      <div class="column-actions separated">
-        <button onclick="copyCounterText()" class="mini-button">Copy</button>
-        <button id="pasteButton" class="mini-button">Paste</button>
-        <button onclick="clearCounterText()" class="mini-button red-button">Clear</button>
-      </div>
+    <div class="toolbar">
+      <button onclick="transformText('uppercase')" class="toolbar-btn" title="Convert to UPPERCASE">UPPER</button>
+      <button onclick="transformText('lowercase')" class="toolbar-btn" title="Convert to lowercase">lower</button>
+      <button onclick="transformText('titlecase')" class="toolbar-btn" title="Convert to Title Case">Title Case</button>
+      <button onclick="transformText('sentencecase')" class="toolbar-btn" title="Convert to Sentence case">Sentence</button>
+      <button onclick="removeExtraSpaces()" class="toolbar-btn" title="Remove extra spaces and linebreaks">Clear Spaces</button>
     </div>
 
-    <!-- Right column: Text Generator -->
-    <div class="generator-container">
-      <h2>Generate Text</h2>
-      <input type="number" id="charLimit" placeholder="Enter number of characters to generate text" min="0"/>
-      <div id="invalidMessage" class="invalid-message"></div>
-      <button onclick="generateText()">Generate</button>
-      <textarea id="generatedText" rows="27" readonly></textarea>
+    <textarea
+            id="description"
+            name="description"
+            class="form-control"
+            rows="10"
+            placeholder="Start typing or paste to begin..."
+            autocomplete="off"
+            oninput="debounceCountAll()"
+    ></textarea>
 
-      <div class="column-actions">
-        <button onclick="copyGeneratedText()" class="mini-button">Copy</button>
-        <button onclick="clearGeneratedText()" class="mini-button red-button">Clear</button>
-      </div>
+    <div class="status-bar">
+      <div>Characters: <span id="charCount">0</span></div>
+      <div>Words: <span id="wordCount">0</span></div>
+      <div>Sentences: <span id="sentenceCount">0</span></div>
+      <div>Paragraphs: <span id="paragraphCount">0</span></div>
+      <div>Spaces: <span id="spaceCount">0</span></div>
+    </div>
+
+    <div class="column-actions separated">
+      <button onclick="copyCounterText()" class="mini-button">Copy</button>
+      <button id="pasteButton" class="mini-button">Paste</button>
+      <button onclick="clearCounterText()" class="mini-button red-button">Clear</button>
     </div>
   </div>
 
-  <script src="js/script.js"></script>
+  <div class="generator-container">
+    <h2>Generate Text</h2>
+
+    <div class="generator-inputs">
+      <input type="number" id="charLimit" placeholder="Number of characters" min="0"/>
+      <button onclick="generateText()" class="primary-btn">Generate</button>
+    </div>
+    <div id="invalidMessage" class="invalid-message"></div>
+
+    <textarea id="generatedText" class="form-control" rows="12" readonly></textarea>
+
+    <div class="column-actions separated">
+      <button onclick="copyGeneratedText()" class="mini-button">Copy</button>
+      <button onclick="clearGeneratedText()" class="mini-button red-button">Clear</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
 </body>
 </html>
