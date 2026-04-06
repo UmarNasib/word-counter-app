@@ -105,6 +105,10 @@ function generateText() {
     document.getElementById('generatedText').value = result.substring(0, limit);
 }
 
+function clearCharLimit() {
+    document.getElementById('charLimit').value = '';
+}
+
 function clearGeneratedText() {
     document.getElementById('generatedText').value = '';
 }

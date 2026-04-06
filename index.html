@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Word Counter App</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=1.1" />
+  <link rel="stylesheet" href="css/styles.css?v=1.2" />
 </head>
 <body>
 <div id="copyMessage" class="copy-message"></div>
@@ -57,6 +57,7 @@
     <div class="generator-inputs">
       <input type="number" id="charLimit" placeholder="Number of characters" min="0"/>
       <button onclick="generateText()" class="primary-btn">Generate</button>
+      <button onclick="clearCharLimit()" class="primary-btn red-button">Clear</button>
     </div>
     <div id="invalidMessage" class="invalid-message"></div>
 
@@ -69,6 +70,6 @@
   </div>
 </div>
 
-<script src="js/script.js?v=1.1"></script>
+<script src="js/script.js?v=1.2"></script>
 </body>
 </html>
