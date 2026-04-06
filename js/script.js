@@ -82,8 +82,8 @@ function removeExtraSpaces() {
     const textArea = document.getElementById('description');
     if (!textArea.value) return;
 
-    // Replace multiple spaces and linebreaks with a single space, and trim edges
-    textArea.value = textArea.value.replace(/\s+/g, ' ').trim();
+    // Replace all whitespace (including spaces and line breaks) with nothing
+    textArea.value = textArea.value.replace(/\s+/g, '');
     countAll(); // Immediately update the stats
 }
 
@@ -141,6 +141,7 @@ async function copyCounterText() {
     }
 }
 
+// --- Event Listeners ---
 document.getElementById('pasteButton').addEventListener('click', async function () {
     const description = document.getElementById('description');
     description.focus(); // Ensures active element for paste context
@@ -152,6 +153,14 @@ document.getElementById('pasteButton').addEventListener('click', async function 
     } catch (err) {
       alert('Paste failed. Please allow clipboard permissions.');
       console.error('Clipboard error:', err);
+    }
+});
+
+// Listen for "Enter" key on the character limit input
+document.getElementById('charLimit').addEventListener('keypress', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Prevents any default browser behavior
+        generateText();
     }
 });
 
